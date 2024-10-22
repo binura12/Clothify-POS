@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="274.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminLoginFormController">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/20944437.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000b9" height="379.0" layoutX="171.0" layoutY="13.0" stroke="#ffffff00" strokeType="INSIDE" width="265.0" />
+      <Label layoutX="200.0" layoutY="22.0" text="ADMIN LOGIN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtGmailAddress" alignment="CENTER" layoutX="210.0" layoutY="205.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Gmail Address" />
+      <TextField fx:id="txtPassword" alignment="CENTER" layoutX="210.0" layoutY="250.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Password" />
+      <Label fx:id="lblWrongPassword" layoutX="197.0" layoutY="289.0" text="Your Gmail or Password was Incorrect" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="265.0" layoutY="312.0" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #1e90ff;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="252.0" layoutY="345.0" onMouseClicked="#btnForgotPswOnMouseClicked" text="Forgot Password ?" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="238.0" layoutY="367.0" onMouseClicked="#btnNewAccOnMouseClicked" text="Don't Have an Account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="274.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.CashierRegisterFormController">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/20944437.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000b9" height="379.0" layoutX="171.0" layoutY="13.0" stroke="#ffffff00" strokeType="INSIDE" width="265.0" />
+      <Label fx:id="lbltitle" layoutX="182.0" layoutY="17.0" text="CASHIER REGISTRATION" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtGmailAddress" alignment="CENTER" layoutX="210.0" layoutY="200.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Gmail Address" />
+      <TextField fx:id="txtPassword" alignment="CENTER" layoutX="210.0" layoutY="286.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Password" />
+      <JFXButton layoutX="265.0" layoutY="334.0" onAction="#btnSignupOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #1e90ff;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="210.0" layoutY="156.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Your Name" />
+      <TextField fx:id="txtAge" alignment="CENTER" layoutX="210.0" layoutY="243.0" prefHeight="31.0" prefWidth="65.0" promptText="Age" />
+      <TextField fx:id="txtCompany" alignment="CENTER" layoutX="291.0" layoutY="243.0" prefHeight="31.0" prefWidth="104.0" promptText="Company Name" />
+      <Label layoutX="262.0" layoutY="368.0" onMouseClicked="#btnBackToHome" text="Back To Home" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

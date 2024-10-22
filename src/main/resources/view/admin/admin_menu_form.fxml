@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="386.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminMenuFormController">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="606.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/20944437.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000b5" height="375.0" layoutX="185.0" layoutY="20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="246.0" />
+      <Label layoutX="192.0" layoutY="30.0" text="What Do You Want To Do ?" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="215.0" layoutY="321.0" onAction="#btnCashRegOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="Cashier Registration" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="215.0" layoutY="268.0" onAction="#btnViewReportsOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="View Reports" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="215.0" layoutY="217.0" onAction="#btnViewSuppliersOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="View Suppliers" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="215.0" layoutY="164.0" onAction="#btnViewProductsOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="View Products" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="215.0" layoutY="111.0" onAction="#btnViewProfileOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="View Profile" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
