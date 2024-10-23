@@ -40,7 +40,7 @@ public class AdminSignupFormController {
     void btnBackToHome(MouseEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/dash_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/admin/admin_login_form.fxml"))));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -70,4 +70,23 @@ public class AdminSignupFormController {
         }
     }
 
+    public void btnHomeOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/dash_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/admin/admin_login_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

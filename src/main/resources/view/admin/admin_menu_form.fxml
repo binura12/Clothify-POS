@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="386.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminMenuFormController">
    <children>
       <ImageView fitHeight="412.0" fitWidth="606.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -45,6 +44,16 @@
       <JFXButton layoutX="215.0" layoutY="111.0" onAction="#btnViewProfileOnAction" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #1e90ff;" text="View Profile" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="553.0" layoutY="9.0" onAction="#btnHomeOnAction" style="-fx-background-color: yellow;" text="H">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="586.0" layoutY="9.0" onAction="#btnBackOnAction" style="-fx-background-color: red;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
    </children>

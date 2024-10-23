@@ -48,7 +48,7 @@ public class ResetPasswordFormController {
     void btnBackToLoginOnMouseClicked(MouseEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/admin/admin_login_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/cashier/cashier_login_form.fxml"))));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -78,6 +78,7 @@ public class ResetPasswordFormController {
 
     @FXML
     void btnSendOnAction(ActionEvent event) {
+        lblWrongOTP.setVisible(false);
         String enteredGmail = txtGmailAddress.getText();
         CashierService cashierService = ServiceFactory.getInstance().getServiceType(ServiceType.cashier);
         boolean isForgetPswEmailFound = cashierService.forgotPassword(enteredGmail);
@@ -93,6 +94,7 @@ public class ResetPasswordFormController {
 
     @FXML
     void btnVerifyOnAction(ActionEvent event) {
+        lblWrongOTP.setVisible(false);
         int enteredOTP = Integer.parseInt(txtOTP.getText());
         if (otp == enteredOTP) {
             txtPassword.setEditable(true);
@@ -100,6 +102,26 @@ public class ResetPasswordFormController {
         } else {
             lblWrongOTP.setVisible(true);
             txtOTP.setText("");
+        }
+    }
+
+    public void btnHomeOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dash_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/cashier/cashier_login_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

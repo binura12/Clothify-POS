@@ -45,4 +45,23 @@ public class AdminServiceImpl implements AdminService {
 
         return true;
     }
+
+//    @Override
+//    public boolean isPasswordValid(String enteredPassword) {
+//        if (enteredPassword.length() < 8) {
+//            return false;
+//        }
+//        boolean hasUpperCase = false;
+//        boolean hasLowerCase = false;
+//        boolean hasDigit = false;
+//        boolean hasSpecialChar = false;
+//
+//        for (char ch : enteredPassword.toCharArray()) {
+//            if (Character.isUpperCase(ch)) {
+//                hasUpperCase = true;
+//            } else if (Character.isLowerCase(ch)) {
+//                hasLowerCase = true;
+//            }
+//        }
+//    }
 }

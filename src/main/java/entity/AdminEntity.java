@@ -12,7 +12,7 @@ import lombok.ToString;
 @Table(name = "admin")
 public class AdminEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fullname;
     private String email;
