@@ -22,16 +22,16 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="txtGmailAddress" alignment="CENTER" layoutX="210.0" layoutY="211.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Gmail Address" />
-      <TextField fx:id="txtPassword" alignment="CENTER" layoutX="210.0" layoutY="297.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Password" />
-      <JFXButton layoutX="265.0" layoutY="345.0" onAction="#btnSignupOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #1e90ff;" text="Register" textFill="WHITE">
+      <TextField fx:id="txtGmailAddress" alignment="CENTER" layoutX="210.0" layoutY="205.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Gmail Address" />
+      <TextField fx:id="txtPassword" alignment="CENTER" layoutX="210.0" layoutY="291.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Password" />
+      <JFXButton layoutX="265.0" layoutY="356.0" onAction="#btnSignupOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #1e90ff;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtName" alignment="CENTER" layoutX="210.0" layoutY="167.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Your Name" />
-      <TextField fx:id="txtAge" alignment="CENTER" layoutX="210.0" layoutY="254.0" prefHeight="31.0" prefWidth="65.0" promptText="Age" />
-      <TextField fx:id="txtCompany" alignment="CENTER" layoutX="291.0" layoutY="254.0" prefHeight="31.0" prefWidth="104.0" promptText="Company Name" />
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="210.0" layoutY="161.0" prefHeight="31.0" prefWidth="186.0" promptText="Enter Your Name" />
+      <TextField fx:id="txtAge" alignment="CENTER" layoutX="210.0" layoutY="248.0" prefHeight="31.0" prefWidth="65.0" promptText="Age" />
+      <TextField fx:id="txtCompany" alignment="CENTER" layoutX="291.0" layoutY="248.0" prefHeight="31.0" prefWidth="104.0" promptText="Company Name" />
       <JFXButton layoutX="542.0" layoutY="7.0" onAction="#btnHomeOnAction" style="-fx-background-color: yellow;" text="H">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -42,5 +42,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblPasswordStrong" layoutX="215.0" layoutY="330.0" text="Please Enter Strong Password !" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

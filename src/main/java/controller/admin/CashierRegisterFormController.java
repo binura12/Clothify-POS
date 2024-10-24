@@ -11,12 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.CashierService;
+import util.PasswordValidateUtil;
 import util.ServiceType;
 
 import java.io.IOException;
 
 public class CashierRegisterFormController {
 
+    public Label lblPasswordStrong;
     @FXML
     private Label lbltitle;
 
@@ -36,24 +38,34 @@ public class CashierRegisterFormController {
     private TextField txtPassword;
 
     @FXML
+    void initialize() {
+        lblPasswordStrong.setVisible(false);
+    }
+
+    @FXML
     void btnSignupOnAction(ActionEvent event) {
-        CashierService cashierService = ServiceFactory.getInstance().getServiceType(ServiceType.cashier);
-        Cashier cashier = new Cashier(
-                txtName.getText(),
-                txtGmailAddress.getText(),
-                txtPassword.getText(),
-                Integer.parseInt(txtAge.getText()),
-                txtCompany.getText()
-        );
-        if (cashierService.addCashier(cashier)) {
-            txtName.setText("");
-            txtGmailAddress.setText("");
-            txtPassword.setText("");
-            txtAge.setText("");
-            txtCompany.setText("");
-            new Alert(Alert.AlertType.INFORMATION, "Cashier Added!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Cashier Not Added!").show();
+        String password = txtPassword.getText();
+        if (!PasswordValidateUtil.isValidPassword(password)) {
+            lblPasswordStrong.setVisible(true);
+        }else {
+            CashierService cashierService = ServiceFactory.getInstance().getServiceType(ServiceType.cashier);
+            Cashier cashier = new Cashier(
+                    txtName.getText(),
+                    txtGmailAddress.getText(),
+                    txtPassword.getText(),
+                    Integer.parseInt(txtAge.getText()),
+                    txtCompany.getText()
+            );
+            if (cashierService.addCashier(cashier)) {
+                txtName.setText("");
+                txtGmailAddress.setText("");
+                txtPassword.setText("");
+                txtAge.setText("");
+                txtCompany.setText("");
+                new Alert(Alert.AlertType.INFORMATION, "Cashier Added!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Cashier Not Added!").show();
+            }
         }
     }
 
