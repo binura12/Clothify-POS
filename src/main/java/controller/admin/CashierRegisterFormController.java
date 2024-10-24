@@ -62,6 +62,7 @@ public class CashierRegisterFormController {
                 txtPassword.setText("");
                 txtAge.setText("");
                 txtCompany.setText("");
+                lblPasswordStrong.setVisible(false);
                 new Alert(Alert.AlertType.INFORMATION, "Cashier Added!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Cashier Not Added!").show();

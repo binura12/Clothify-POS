@@ -9,4 +9,5 @@ public interface CashierService extends SuperService {
     int generateOTP();
     boolean addCashier(Cashier cashier);
     boolean resetPassword(String text, String text1);
+    Cashier loadCashierProfile(String loggedInCashierEmail);
 }

@@ -9,4 +9,5 @@ public interface AdminService extends SuperService {
     int generateOTP();
     boolean resetPassword(String email, String newPsw);
     boolean addAdmin(Admin admin);
+    Admin loadAdminProfile(String loggedInAdminEmail);
 }

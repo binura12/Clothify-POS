@@ -12,12 +12,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class CashierDaoImpl implements CashierDao {
+
+    public static String CashierLoggedInEmail;
     @Override
     public boolean save(CashierEntity cashier) {
         try {
-            String hashedEmail = EncryptionUtil.md5Hash(cashier.getEmail());
             String hashedPassword = EncryptionUtil.md5Hash(cashier.getPassword());
-            cashier.setEmail(hashedEmail);
             cashier.setPassword(hashedPassword);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
@@ -35,7 +35,6 @@ public class CashierDaoImpl implements CashierDao {
     @Override
     public boolean loginCashier(String enteredGmail, String enteredPassword) {
         try {
-            enteredGmail = EncryptionUtil.md5Hash(enteredGmail);
             enteredPassword = EncryptionUtil.md5Hash(enteredPassword);
             List<CashierEntity> cashierList = null;
             Session session = HibernateUtil.getSession();
@@ -45,6 +44,7 @@ public class CashierDaoImpl implements CashierDao {
             session.close();
             for (CashierEntity cashierEntity : cashierList) {
                 if (cashierEntity.getEmail().equals(enteredGmail) && cashierEntity.getPassword().equals(enteredPassword)) {
+                    CashierLoggedInEmail = cashierEntity.getEmail();
                     return true;
                 }
             }
@@ -56,21 +56,16 @@ public class CashierDaoImpl implements CashierDao {
 
     @Override
     public boolean forgotPassword(String enteredGmail) {
-        try {
-            enteredGmail = EncryptionUtil.md5Hash(enteredGmail);
-            List<CashierEntity> cashierList = null;
-            Session session = HibernateUtil.getSession();
-            session.beginTransaction();
-            cashierList = session.createQuery("from CashierEntity").list();
-            session.getTransaction().commit();
-            session.close();
-            for (CashierEntity cashierEntity : cashierList) {
-                if (cashierEntity.getEmail().equals(enteredGmail)) {
-                    return true;
-                }
+        List<CashierEntity> cashierList = null;
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        cashierList = session.createQuery("from CashierEntity").list();
+        session.getTransaction().commit();
+        session.close();
+        for (CashierEntity cashierEntity : cashierList) {
+            if (cashierEntity.getEmail().equals(enteredGmail)) {
+                return true;
             }
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
         }
         return false;
     }
@@ -80,7 +75,6 @@ public class CashierDaoImpl implements CashierDao {
         try {
             Session session = HibernateUtil.getSession();
             session.beginTransaction();
-            email = EncryptionUtil.md5Hash(email);
             newPsw = EncryptionUtil.md5Hash(newPsw);
             String hql = "update CashierEntity set password = :newPsw where email = :email";
             Query query = session.createQuery(hql);
@@ -93,5 +87,16 @@ public class CashierDaoImpl implements CashierDao {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<CashierEntity> loadCashierProfile(String loggedInCashierEmail) {
+        Session session = HibernateUtil.getSession();
+        String hql = "from CashierEntity where email = :loggedInCashierEmail";
+        Query query = session.createQuery(hql);
+        query.setParameter("loggedInCashierEmail", loggedInCashierEmail);
+        List<CashierEntity> cashierList = query.list();
+        session.close();
+        return cashierList;
     }
 }

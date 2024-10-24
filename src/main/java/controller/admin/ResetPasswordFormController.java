@@ -15,6 +15,7 @@ import service.ServiceFactory;
 import service.custom.AdminService;
 import service.custom.CashierService;
 import util.EmailUtil;
+import util.PasswordValidateUtil;
 import util.ServiceType;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.io.IOException;
 public class ResetPasswordFormController {
 
     public JFXButton btnReset;
+    public Label lblPasswordStrong;
     @FXML
     private Label lblWrongOTP;
 
@@ -42,6 +44,7 @@ public class ResetPasswordFormController {
         btnReset.setDisable(true);
         txtOTP.setEditable(false);
         txtPassword.setEditable(false);
+        lblPasswordStrong.setVisible(false);
     }
 
     @FXML
@@ -57,22 +60,27 @@ public class ResetPasswordFormController {
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-        AdminService adminService = ServiceFactory.getInstance().getServiceType(ServiceType.admin);
-        boolean isPasswordReset = adminService.resetPassword(txtGmailAddress.getText(), txtPassword.getText());
-        if (isPasswordReset) {
-            new Alert(Alert.AlertType.INFORMATION, "Password Reset!").show();
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin/admin_login_form.fxml"))));
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        String password = txtPassword.getText();
+        if (!PasswordValidateUtil.isValidPassword(password)){
+            lblPasswordStrong.setVisible(true);
         } else {
-            new Alert(Alert.AlertType.ERROR, "Password Reset Failed!").show();
-            txtGmailAddress.setText("");
-            txtPassword.setText("");
-            txtOTP.setText("");
+            AdminService adminService = ServiceFactory.getInstance().getServiceType(ServiceType.admin);
+            boolean isPasswordReset = adminService.resetPassword(txtGmailAddress.getText(), txtPassword.getText());
+            if (isPasswordReset) {
+                new Alert(Alert.AlertType.INFORMATION, "Password Reset!").show();
+                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                try {
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin/admin_login_form.fxml"))));
+                    stage.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Password Reset Failed!").show();
+                txtGmailAddress.setText("");
+                txtPassword.setText("");
+                txtOTP.setText("");
+            }
         }
     }
 

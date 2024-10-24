@@ -1,5 +1,6 @@
 package service.custom.impl;
 
+import dto.Admin;
 import dto.Cashier;
 import entity.AdminEntity;
 import entity.CashierEntity;
@@ -10,6 +11,7 @@ import repository.custom.CashierDao;
 import service.custom.CashierService;
 import util.DaoType;
 
+import java.util.List;
 import java.util.Random;
 
 public class CashierServiceImpl implements CashierService {
@@ -46,5 +48,12 @@ public class CashierServiceImpl implements CashierService {
     public boolean resetPassword(String email, String newPsw) {
         CashierDao cashierDao = DaoFactory.getInstance().getDaoType(DaoType.cashier);
         return cashierDao.resetPassword(email, newPsw);
+    }
+
+    @Override
+    public Cashier loadCashierProfile(String loggedInCashierEmail) {
+        CashierDao cashierDao = DaoFactory.getInstance().getDaoType(DaoType.cashier);
+        List<CashierEntity> cashierList = cashierDao.loadCashierProfile(loggedInCashierEmail);
+        return new ModelMapper().map(cashierList.get(0), Cashier.class);
     }
 }

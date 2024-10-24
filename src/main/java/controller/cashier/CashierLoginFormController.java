@@ -1,4 +1,4 @@
-package controller;
+package controller.cashier;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +34,7 @@ public class CashierLoginFormController {
     void btnForgotPswOnMouseClicked(MouseEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/cashier/reset_password_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/cashier/reset_password_form.fxml"))));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -49,7 +49,13 @@ public class CashierLoginFormController {
         CashierService cashierService = ServiceFactory.getInstance().getServiceType(ServiceType.cashier);
         boolean isCashierFound = cashierService.loginCashier(enteredGmail, enteredPassword);
         if (isCashierFound) {
-            // TODO Go to DashBoard
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/cashier/cashier_menu_form.fxml"))));
+                stage.show();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             lblWrongPassword.setVisible(true);
             txtPassword.clear();
@@ -60,7 +66,7 @@ public class CashierLoginFormController {
     public void btnHomeOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/dash_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dash_form.fxml"))));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -70,7 +76,7 @@ public class CashierLoginFormController {
     public void btnBackOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/dash_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dash_form.fxml"))));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

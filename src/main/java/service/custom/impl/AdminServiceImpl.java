@@ -8,6 +8,7 @@ import repository.custom.AdminDao;
 import service.custom.AdminService;
 import util.DaoType;
 
+import java.util.List;
 import java.util.Random;
 
 public class AdminServiceImpl implements AdminService {
@@ -44,5 +45,12 @@ public class AdminServiceImpl implements AdminService {
         adminDao.save(adminEntity);
 
         return true;
+    }
+
+    @Override
+    public Admin loadAdminProfile(String loggedInAdminEmail) {
+        AdminDao adminDao = DaoFactory.getInstance().getDaoType(DaoType.admin);
+        List<AdminEntity> adminList = adminDao.loadAdminProfile(loggedInAdminEmail);
+        return new ModelMapper().map(adminList.get(0), Admin.class);
     }
 }
