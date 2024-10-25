@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.supplier.SupplierFormController">
+   <children>
+      <ImageView fitHeight="402.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/20944437.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c2" height="386.0" layoutX="8.0" layoutY="6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="585.0" />
+      <ScrollPane layoutX="14.0" layoutY="81.0" pannable="true" prefHeight="304.0" prefWidth="286.0">
+         <content>
+            <TableView fx:id="tblSupplier" prefHeight="294.0" prefWidth="618.0">
+              <columns>
+                <TableColumn fx:id="colmnId" prefWidth="45.60003662109375" text="ID" />
+                  <TableColumn fx:id="colmnName" prefWidth="100.00005722045898" text="Name" />
+                  <TableColumn fx:id="colmnCompany" prefWidth="100.00005722045898" text="Company" />
+                  <TableColumn fx:id="colmnEmail" prefWidth="168.00001525878906" text="Email Address" />
+                  <TableColumn fx:id="colmnItem" prefWidth="93.5999755859375" text="Item" />
+                  <TableColumn fx:id="colmnCategory" minWidth="5.5999755859375" prefWidth="107.19998779296873" text="Category" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </content></ScrollPane>
+      <Label layoutX="100.0" layoutY="14.0" text="SUPPLIER INFORMATIONS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="14.0" layoutY="14.0" onAction="#btnHomeOnAction" style="-fx-background-color: yellow;" text="H">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="47.0" layoutY="14.0" onAction="#btnBackOnAction" style="-fx-background-color: red;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="319.0" layoutY="80.0" prefHeight="34.0" prefWidth="118.0" promptText="Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtCompany" alignment="CENTER" layoutX="448.0" layoutY="80.0" prefHeight="34.0" prefWidth="138.0" promptText="Company">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" alignment="CENTER" layoutX="320.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" promptText="Email Address">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtItem" alignment="CENTER" layoutX="321.0" layoutY="185.0" prefHeight="34.0" prefWidth="170.0" promptText="Item Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cmbCategory" layoutX="322.0" layoutY="237.0" prefHeight="34.0" prefWidth="150.0" promptText="Category" />
+      <JFXButton layoutX="322.0" layoutY="296.0" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #2ed573;" text="ADD">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="391.0" layoutY="296.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #ffa502;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="461.0" layoutY="297.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: RED;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="528.0" layoutY="296.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #3742fa;" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="360.0" layoutY="343.0" onAction="#btnReloadTblOnAction" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #485460;" text="RELOAD TABLE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

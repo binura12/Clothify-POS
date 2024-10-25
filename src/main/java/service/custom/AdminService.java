@@ -1,6 +1,7 @@
 package service.custom;
 
 import dto.Admin;
+import dto.Supplier;
 import service.SuperService;
 
 public interface AdminService extends SuperService {

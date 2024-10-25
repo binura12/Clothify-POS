@@ -17,8 +17,11 @@ public class DashFormController {
     @FXML
     private JFXButton btnCashier;
 
+    public static String active;
+
     @FXML
     void btnAdminOnAction(ActionEvent event) {
+        active = "admin";
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/admin/admin_login_form.fxml"))));
@@ -30,6 +33,7 @@ public class DashFormController {
 
     @FXML
     void btnCashierOnAction(ActionEvent event) {
+        active = "cashier";
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/cashier/cashier_login_form.fxml"))));

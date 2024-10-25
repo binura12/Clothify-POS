@@ -4,6 +4,7 @@ import dto.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -16,8 +17,10 @@ import util.PasswordValidateUtil;
 import util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdminSignupFormController {
+public class AdminSignupFormController implements Initializable {
 
     public Label lblPasswordStrong;
     @FXML
@@ -37,11 +40,6 @@ public class AdminSignupFormController {
 
     @FXML
     private TextField txtPassword;
-
-    @FXML
-    void initialize() {
-        lblPasswordStrong.setVisible(false);
-    }
 
     @FXML
     void btnBackToHome(MouseEvent event) {
@@ -100,5 +98,10 @@ public class AdminSignupFormController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lblPasswordStrong.setVisible(false);
     }
 }

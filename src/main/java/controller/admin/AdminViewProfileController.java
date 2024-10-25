@@ -4,6 +4,7 @@ import dto.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -13,8 +14,10 @@ import service.custom.AdminService;
 import util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdminViewProfileController {
+public class AdminViewProfileController implements Initializable {
 
     public Label lblGmail;
     @FXML
@@ -28,19 +31,6 @@ public class AdminViewProfileController {
 
     @FXML
     private Label lblName;
-
-    @FXML
-    void initialize() {
-        AdminService adminService = ServiceFactory.getInstance().getServiceType(ServiceType.admin);
-        String loggedInAdminEmail = AdminDaoImpl.AdminLoggedInEmail;
-        Admin admin = adminService.loadAdminProfile(loggedInAdminEmail);
-
-        lblID.setText("ID : " + admin.getId());
-        lblAge.setText("Age : " + admin.getAge());
-        lblName.setText("Name : " + admin.getFullname());
-        lblCompany.setText("Company : " + admin.getCompany());
-        lblGmail.setText("Email : " + admin.getEmail());
-    }
 
     @FXML
     void btnBackOnAction(ActionEvent event) {
@@ -62,5 +52,18 @@ public class AdminViewProfileController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        AdminService adminService = ServiceFactory.getInstance().getServiceType(ServiceType.admin);
+        String loggedInAdminEmail = AdminDaoImpl.AdminLoggedInEmail;
+        Admin admin = adminService.loadAdminProfile(loggedInAdminEmail);
+
+        lblID.setText("ID : " + admin.getId());
+        lblAge.setText("Age : " + admin.getAge());
+        lblName.setText("Name : " + admin.getFullname());
+        lblCompany.setText("Company : " + admin.getCompany());
+        lblGmail.setText("Email : " + admin.getEmail());
     }
 }

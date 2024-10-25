@@ -1,7 +1,7 @@
 package repository.custom.impl;
 
-import entity.AdminEntity;
 import entity.CashierEntity;
+import entity.SupplierEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import repository.custom.CashierDao;
@@ -30,6 +30,16 @@ public class CashierDaoImpl implements CashierDao {
         session.close();
 
         return true;
+    }
+
+    @Override
+    public boolean updateSupplier(SupplierEntity updatedSupplier) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteSupplier(SupplierEntity deletedSupplierEntity) {
+        return false;
     }
 
     @Override

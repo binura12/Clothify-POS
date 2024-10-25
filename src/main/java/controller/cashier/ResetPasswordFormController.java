@@ -5,6 +5,7 @@ import controller.DashFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -19,8 +20,10 @@ import util.PasswordValidateUtil;
 import util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ResetPasswordFormController {
+public class ResetPasswordFormController implements Initializable {
 
     public JFXButton btnReset;
     public Label lblPasswordStrong;
@@ -37,15 +40,6 @@ public class ResetPasswordFormController {
     private TextField txtPassword;
 
     public static int otp;
-
-    @FXML
-    void initialize() {
-        lblWrongOTP.setVisible(false);
-        btnReset.setDisable(true);
-        txtOTP.setEditable(false);
-        txtPassword.setEditable(false);
-        lblPasswordStrong.setVisible(false);
-    }
 
     @FXML
     void btnBackToLoginOnMouseClicked(MouseEvent event) {
@@ -131,5 +125,14 @@ public class ResetPasswordFormController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lblWrongOTP.setVisible(false);
+        btnReset.setDisable(true);
+        txtOTP.setEditable(false);
+        txtPassword.setEditable(false);
+        lblPasswordStrong.setVisible(false);
     }
 }

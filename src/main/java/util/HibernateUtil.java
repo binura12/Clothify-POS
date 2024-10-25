@@ -17,7 +17,7 @@ public class HibernateUtil {
         Metadata metadata = new MetadataSources(build)
                 .addAnnotatedClass(AdminEntity.class)
                 .addAnnotatedClass(CashierEntity.class)
-//                .addAnnotatedClass(UserEntity.class)
+                .addAnnotatedClass(SupplierEntity.class)
 //                .addAnnotatedClass(EmployeeEntity.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)

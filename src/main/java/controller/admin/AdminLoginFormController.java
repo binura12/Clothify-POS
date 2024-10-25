@@ -3,6 +3,7 @@ package controller.admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,8 +14,10 @@ import service.custom.AdminService;
 import util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdminLoginFormController {
+public class AdminLoginFormController implements Initializable {
 
     @FXML
     private Label lblWrongPassword;
@@ -24,11 +27,6 @@ public class AdminLoginFormController {
 
     @FXML
     private TextField txtPassword;
-
-    @FXML
-    void initialize() {
-        lblWrongPassword.setVisible(false);
-    }
 
     @FXML
     void btnForgotPswOnMouseClicked(MouseEvent event) {
@@ -94,4 +92,8 @@ public class AdminLoginFormController {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lblWrongPassword.setVisible(false);    }
 }
