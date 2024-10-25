@@ -20,7 +20,7 @@ public class SupplierDaoImpl implements SupplierDao {
     }
 
     @Override
-    public boolean updateSupplier(SupplierEntity updatedSupplier) {
+    public boolean update(SupplierEntity updatedSupplier) {
         Long supplierId = updatedSupplier.getSupplierId();
         String newName = updatedSupplier.getSupplierName();
         String newEmail = updatedSupplier.getSupplierEmail();
@@ -45,7 +45,7 @@ public class SupplierDaoImpl implements SupplierDao {
     }
 
     @Override
-    public boolean deleteSupplier(SupplierEntity deletedSupplierEntity) {
+    public boolean delete(SupplierEntity deletedSupplierEntity) {
         Long id = deletedSupplierEntity.getSupplierId();
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
@@ -77,6 +77,19 @@ public class SupplierDaoImpl implements SupplierDao {
         Query query = session.createQuery(hql);
         query.setParameter("supplierName", supplierName);
         List<SupplierEntity> supplierList = query.list();
+        session.close();
+        return supplierList;
+    }
+
+    @Override
+    public List<SupplierEntity> getSuppliersByCategory(String selectedCategory) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        String hql = "from SupplierEntity where category = :selectedCategory";
+        Query query = session.createQuery(hql);
+        query.setParameter("selectedCategory", selectedCategory);
+        List<SupplierEntity> supplierList = query.list();
+        session.getTransaction().commit();
         session.close();
         return supplierList;
     }

@@ -12,19 +12,17 @@ import java.awt.*;
 public class Product {
     private Long productId;
     private String productName;
-    private int size;
-    private double price;
-    private int quantity;
-    private Image productImage;
+    private String size;
+    private Double price;
+    private Integer quantity;
     private String category;
-    private Long supplierId;
+    private String supplierId;
 
-    public Product (String productName, int size, double price, int quantity, Image productImage, String category, Long supplierId) {
+    public Product (String productName, String size, Double price, Integer quantity, String category, String supplierId) {
         this.productName = productName;
         this.size = size;
         this.price = price;
         this.quantity = quantity;
-        this.productImage = productImage;
         this.category = category;
         this.supplierId = supplierId;
     }

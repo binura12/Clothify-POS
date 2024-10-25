@@ -1,9 +1,9 @@
 package repository;
 
-import entity.SupplierEntity;
+import entity.ProductsEntity;
 
 public interface CrudDao <T> extends Superdao  {
     boolean save(T t);
-    boolean updateSupplier(SupplierEntity supplierEntity);
-    boolean deleteSupplier(SupplierEntity deletedSupplierEntity);
+    boolean update(T t);
+    boolean delete(T t);
 }

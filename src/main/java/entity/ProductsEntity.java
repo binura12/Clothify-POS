@@ -17,20 +17,18 @@ public class ProductsEntity {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long productId;
     private String productName;
-    private int size;
-    private double price;
-    private int quantity;
-    private Image productImage;
+    private String size;
+    private Double price;
+    private Integer quantity;
     private String category;
-    private Long supplierId;
+    private String supplierId;
 
-    public ProductsEntity (Long productId, String productName, int size, double price, int quantity, Image productImage, String category, Long supplierId) {
+    public ProductsEntity (Long productId, String productName, String size, Double price, Integer quantity, String category, String supplierId) {
         this.productId = productId;
         this.productName = productName;
         this.size = size;
         this.price = price;
         this.quantity = quantity;
-        this.productImage = productImage;
         this.category = category;
         this.supplierId = supplierId;
     }

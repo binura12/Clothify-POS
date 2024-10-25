@@ -100,13 +100,14 @@ public class AdminDaoImpl implements AdminDao {
 
         return true;
     }
+
     @Override
-    public boolean updateSupplier(SupplierEntity updatedSupplier) {
+    public boolean update(AdminEntity admin) {
         return false;
     }
 
     @Override
-    public boolean deleteSupplier(SupplierEntity deletedSupplierEntity) {
+    public boolean delete(AdminEntity admin) {
         return false;
     }
 }

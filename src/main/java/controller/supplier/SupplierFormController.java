@@ -77,6 +77,7 @@ public class SupplierFormController implements Initializable {
             txtItem.clear();
             cmbCategory.setValue(null);
             new Alert(Alert.AlertType.INFORMATION, "Supplier Added Successfully!").show();
+            loadTableData();
         } else {
             new Alert(Alert.AlertType.ERROR, "Supplier Not Added!").show();
         }

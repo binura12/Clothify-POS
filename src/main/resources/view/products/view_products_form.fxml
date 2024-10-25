@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.products.ViewProductsFormController">
    <children>
@@ -12,5 +20,70 @@
             <Image url="@../../Assets/20944437.jpg" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000bf" height="387.0" layoutX="6.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="588.0" />
+      <Label layoutX="88.0" layoutY="13.0" text="PRODUCTS INFORMATIONS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="11.0" layoutY="12.0" onAction="#btnHomeOnAction" style="-fx-background-color: yellow;" text="H">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="44.0" layoutY="12.0" onAction="#btnBackOnAction" style="-fx-background-color: red;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="321.0" layoutY="101.0" prefHeight="34.0" prefWidth="158.0" promptText="Name" />
+      <ComboBox fx:id="cmbSize" layoutX="495.0" layoutY="101.0" prefHeight="34.0" prefWidth="90.0" promptText="Size" />
+      <TextField fx:id="txtPrice" alignment="CENTER" layoutX="322.0" layoutY="169.0" prefHeight="34.0" prefWidth="139.0" promptText="Price" />
+      <TextField fx:id="txtQty" alignment="CENTER" layoutX="479.0" layoutY="169.0" prefHeight="34.0" prefWidth="106.0" promptText="QTY" />
+      <ComboBox fx:id="cmbCategories" layoutX="471.0" layoutY="233.0" onMouseClicked="#cmbCategoriesOnMouseClicked" prefHeight="34.0" prefWidth="114.0" promptText="Categories" />
+      <ComboBox fx:id="cmbSupplier" layoutX="323.0" layoutY="233.0" onMouseClicked="#supplierOnMouseClicked" prefHeight="34.0" prefWidth="139.0" promptText="Supplier" />
+      <JFXButton layoutX="321.0" layoutY="297.0" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #2ed573;" text="ADD">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="390.0" layoutY="297.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #ffa502;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="460.0" layoutY="298.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: RED;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="527.0" layoutY="297.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #3742fa;" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="370.0" layoutY="345.0" onAction="#btnReloadTblOnAction" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #485460;" text="RELOAD TABLE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ScrollPane layoutX="14.0" layoutY="80.0" prefHeight="306.0" prefWidth="291.0">
+         <content>
+            <TableView fx:id="tblProducts" prefHeight="302.0" prefWidth="588.0">
+              <columns>
+                <TableColumn fx:id="colomnId" prefWidth="43.19998246431351" text="ID" />
+                <TableColumn fx:id="colomnProductName" prefWidth="107.20000839233398" text="Product Name" />
+                  <TableColumn fx:id="colomnProductSize" prefWidth="87.20001220703125" text="Product Size" />
+                  <TableColumn fx:id="colomnProductPrice" prefWidth="63.20002746582031" text="Product Price" />
+                  <TableColumn fx:id="colomnQty" prefWidth="63.20002746582031" text="QTY" />
+                  <TableColumn fx:id="colomnCategory" prefWidth="107.20000839233398" text="Category" />
+                  <TableColumn fx:id="colomnSupplierId" prefWidth="107.20000839233398" text="Supplier ID" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

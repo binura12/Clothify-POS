@@ -33,12 +33,12 @@ public class CashierDaoImpl implements CashierDao {
     }
 
     @Override
-    public boolean updateSupplier(SupplierEntity updatedSupplier) {
+    public boolean update(CashierEntity cashier) {
         return false;
     }
 
     @Override
-    public boolean deleteSupplier(SupplierEntity deletedSupplierEntity) {
+    public boolean delete(CashierEntity cashier) {
         return false;
     }
 

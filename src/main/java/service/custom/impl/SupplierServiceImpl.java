@@ -47,7 +47,7 @@ public class SupplierServiceImpl implements SupplierService {
         SupplierEntity updatedSupplierEntity = new ModelMapper().map(updatedSupplier, SupplierEntity.class);
 
         SupplierDao supplierDao = DaoFactory.getInstance().getDaoType(DaoType.supplier);
-        supplierDao.updateSupplier(updatedSupplierEntity);
+        supplierDao.update(updatedSupplierEntity);
 
         return true;
     }
@@ -57,7 +57,7 @@ public class SupplierServiceImpl implements SupplierService {
         SupplierEntity deletedSupplierEntity = new ModelMapper().map(deletedSupplier, SupplierEntity.class);
 
         SupplierDao supplierDao = DaoFactory.getInstance().getDaoType(DaoType.supplier);
-        supplierDao.deleteSupplier(deletedSupplierEntity);
+        supplierDao.delete(deletedSupplierEntity);
 
         return true;
     }
