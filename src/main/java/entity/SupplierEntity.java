@@ -15,16 +15,16 @@ public class SupplierEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long supplierId;
     private String supplierName;
-    private String supplierCompany;
     private String supplierEmail;
+    private String supplierCompany;
     private String supplierItem;
     private String category;
 
-    public SupplierEntity (Long supplierId, String supplierName, String supplierCompany, String supplierEmail, String supplierItem, String category) {
+    public SupplierEntity (Long supplierId, String supplierName, String supplierEmail, String supplierCompany, String supplierItem, String category) {
         this.supplierId = supplierId;
         this.supplierName = supplierName;
-        this.supplierCompany = supplierCompany;
         this.supplierEmail = supplierEmail;
+        this.supplierCompany = supplierCompany;
         this.supplierItem = supplierItem;
         this.category = category;
     }
