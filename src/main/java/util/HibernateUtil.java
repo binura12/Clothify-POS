@@ -1,6 +1,9 @@
 package util;
 
-import entity.*;
+import entity.AdminEntity;
+import entity.CashierEntity;
+import entity.ProductsEntity;
+import entity.SupplierEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

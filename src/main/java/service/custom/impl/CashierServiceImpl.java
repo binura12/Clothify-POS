@@ -1,12 +1,9 @@
 package service.custom.impl;
 
-import dto.Admin;
 import dto.Cashier;
-import entity.AdminEntity;
 import entity.CashierEntity;
 import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
-import repository.custom.AdminDao;
 import repository.custom.CashierDao;
 import service.custom.CashierService;
 import util.DaoType;

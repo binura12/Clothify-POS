@@ -1,6 +1,5 @@
 package repository.custom;
 
-import entity.AdminEntity;
 import entity.CashierEntity;
 import repository.CrudDao;
 

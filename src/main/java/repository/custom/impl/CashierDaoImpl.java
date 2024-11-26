@@ -1,7 +1,6 @@
 package repository.custom.impl;
 
 import entity.CashierEntity;
-import entity.SupplierEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import repository.custom.CashierDao;

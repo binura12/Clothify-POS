@@ -1,6 +1,5 @@
 package controller.cashier;
 
-import dto.Admin;
 import dto.Cashier;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,11 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import repository.custom.CashierDao;
-import repository.custom.impl.AdminDaoImpl;
 import repository.custom.impl.CashierDaoImpl;
 import service.ServiceFactory;
-import service.custom.AdminService;
 import service.custom.CashierService;
 import util.ServiceType;
 
